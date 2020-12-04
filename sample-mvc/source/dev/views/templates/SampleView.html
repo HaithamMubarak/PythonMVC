@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%py $self.data['title'] %></title>
+
+    <style>
+        li {
+            background-color: blue;
+            color: white;
+            margin-top: 10px;
+            list-style: none;
+            width: 300px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<p>Data length is <%py$len(self.data['items'])%></p>
+<%py
+from dev.views.subview import SubView
+
+for item in self.data['items']:
+    self.out(SubView(item))
+%>
+
+
+
+<p>
+
+
+</p>
+</body>
+</html>
