@@ -183,3 +183,9 @@ for item in self.data['items']:
 
 You can check the complete sample under
 https://github.com/HaithamMubarak/PythonMVC/tree/main/sample-mvc/source/dev
+
+
+Please note that the server is created on the socket level, so for now it mau has some issues with large data. New changes will be added to integrate http server module from python.
+
+## Thank You
+
