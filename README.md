@@ -20,15 +20,15 @@ You can create a controller class and bind its methods using the followings samp
 - Use HttpServer.mapping to bind the http GET method on URL '/hi' as below: 
 
 ```python
-    @HttpServer.mapping(path='/hi', method='GET')
+@HttpServer.mapping(path='/hi', method='GET')
 ```
     
 - Use HttpServer.service to get the registered service as below
 ```python
- @HttpServer.service
+@HttpServer.service
 ```
-    
-    Sample Controller:
+
+- Sample Controller:
     
 ```python
 from mvc.http.httpserver import HttpServer
@@ -47,14 +47,17 @@ class MyController:
 
     @HttpServer.mapping(path='/hi', method='GET')
     def getWelcome(self, request, io):
+        # Returns a simple string response
         return "Hello World!"
 
     @HttpServer.mapping(path='/student', method='GET')
     def getData(self, request, io):
+        # Returns the json data from items entity
         io.send_json(data=self.service().items('student'))
 
     @HttpServer.mapping(path='/student', method='POST')
     def postData(self, request, io):
+        # Adds the json data from the POST method
         self.service().add_item(self.entityName, request.body)
         io.send(data="New item is added, current data size is %d" % self.service().count(self.entityName))
 
@@ -65,6 +68,7 @@ class MyController:
 
     @HttpServer.mapping(path='/student/view', method='GET')
     def getView(self, request, io):
+        # Returns a view object along with its data to be used inside the html template
         return SampleView({'title': 'Simple MVC', 'items': self.service().items(self.entityName)})
 ```
         
