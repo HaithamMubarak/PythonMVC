@@ -19,15 +19,14 @@ You can create a controller class and bind its methods using the followings samp
 
 - Use HttpServer.mapping to bind the http GET method on URL '/hi' as below: 
 
-    ```python
-        @HttpServer.mapping(path='/hi', method='GET')
-    ```
+```python
+    @HttpServer.mapping(path='/hi', method='GET')
+```
     
 - Use HttpServer.service to get the registered service as below
-
-    ```python
-         @HttpServer.service
-    ```
+```python
+ @HttpServer.service
+```
     
     Sample Controller:
     
